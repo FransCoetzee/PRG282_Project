@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PRG282_Project
+namespace PRG282_Project.BusinessLogicLayer
 {
-    public partial class frmLogin : Form
+    public partial class Operations : Form
     {
-        public frmLogin()
+        public Operations()
         {
             InitializeComponent();
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
