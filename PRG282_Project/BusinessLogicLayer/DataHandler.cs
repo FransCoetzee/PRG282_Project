@@ -81,6 +81,18 @@ namespace PRG282_Project.BusinessLogicLayer
             Close();
         }
 
+        public void insertModule(string id, string name, string description, string link)
+        {
+            Open();
+            SqlCommand cmd = new SqlCommand("INSERT INTO Module VALUES (@id,@name,@description,@link)", connect);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@name", name);
+            cmd.Parameters.AddWithValue("@description", description);
+            cmd.Parameters.AddWithValue("@link", link);
+            cmd.ExecuteNonQuery();
+            Close();
+        }
+
         public void updateValue(string table,  string category, string value, string id)
         {
             Open();
