@@ -24,18 +24,41 @@ namespace PRG282_Project.DataLayer
         {
             if (!File.Exists(path))
             {
-                File.CreateText(path);
+                StreamWriter file = File.CreateText(path);
+                file.Close();
             }
         }
 
         public List<string> FileList()
         {
-            return File.ReadAllLines(path).ToList();
+            using (TextReader file = File.OpenText(path))
+            {
+                return file.ReadToEnd().Split('\n').ToList();
+            }
+        }
+
+        public bool Login(string user, string pass)
+        {
+            CheckCreateFile();
+            List<string> logins = FileList();
+            string details = user + "," + pass + "\r";
+            using (FileStream file = File.Open(path, FileMode.Open))
+            {
+                if (logins.Contains(details))
+                {
+                    return true;
+                }
+                return false;
+            }
         }
 
         public void Register(string user, string pass)
         {
-            File.AppendText(path).WriteLine(user + "," + pass);
+            CheckCreateFile();
+            using (StreamWriter file = File.AppendText(path))
+            {
+                file.WriteLine(user + "," + pass);
+            }
         }
 
     }
