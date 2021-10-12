@@ -28,7 +28,9 @@ namespace PRG282_Project.PresentationLayer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            //Validation
+            //Not empty and there shouldn't be any commas in any of the textboxes
+            //Make a customer exception for the comma
             if (file.Login(textBox1.Text, textBox2.Text))
             {
                 Form2 Login = new Form2();

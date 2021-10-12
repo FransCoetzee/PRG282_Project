@@ -54,7 +54,7 @@ namespace PRG282_Project.PresentationLayer
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add your Details";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+    //        this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // txtPassword
             // 
@@ -78,7 +78,7 @@ namespace PRG282_Project.PresentationLayer
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(146, 24);
             this.txtName.TabIndex = 3;
-            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
+           // this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // label1
             // 

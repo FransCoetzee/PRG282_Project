@@ -13,31 +13,30 @@ namespace PRG282_Project.PresentationLayer
 {
     public partial class Form3 : Form
     {
-        FileHandler file = new FileHandler();
+        
         public Form3()
         {
             InitializeComponent();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
-        {
+<<<<<<< HEAD
+        {         
             if(file.Register(txtName.Text, txtPassword.Text) == "True")
+=======
+        {
+            FileHandler file = new FileHandler();
+            string user = txtName.Text;
+            string pass = txtPassword.Text;
+            if(user == "" || pass == "" || user.Contains(",") || pass.Contains(","))
+>>>>>>> 66e0e18c4645ac9b5c96fda804e62341f8d339bd
             {
-                MessageBox.Show("Registered Successfully");
+                MessageBox.Show("You can not leave these fields empty or have a ',' in them.");
             }
             else
             {
-                MessageBox.Show("Try Again");
+                file.Register(user, pass);
+                MessageBox.Show("Registered Successfully");
             }
         }
 

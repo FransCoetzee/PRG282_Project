@@ -82,5 +82,10 @@ namespace PRG282_Project.PresentationLayer
         {
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
