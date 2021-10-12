@@ -21,25 +21,35 @@ namespace PRG282_Project.PresentationLayer
             InitializeComponent();
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             //Validation
             //Not empty and there shouldn't be any commas in any of the textboxes
             //Make a customer exception for the comma
-            if (file.Login(textBox1.Text, textBox2.Text))
+            try
             {
-                Form2 Login = new Form2();
-                this.Hide();
-                Login.Show();
+                if (textBox1.Text == string.Empty || textBox2.Text == string.Empty || textBox1.Text.Contains(",") || textBox2.Text.Contains(","))
+                {
+                    throw new EmptyTextException("\t\t\t\t!! Error !!\nUsername and Password cannot be left empty or contain a comma (',')");
+                }
+                string username = textBox1.Text;
+                string password = textBox2.Text;
+                if (file.Login(username, password))
+                {
+                 Form2 Login = new Form2();
+                 this.Hide();
+                 Login.Show();
+                }
+                else
+                {
+                  MessageBox.Show("Username or password is incorrect");
+                }                                
             }
-            else {
-                MessageBox.Show("Username or password is incorrect");
+            catch (EmptyTextException et)
+            {
+                MessageBox.Show(et.Message);
             }
+           
         }
 
         private void button2_Click(object sender, EventArgs e)

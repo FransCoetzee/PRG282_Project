@@ -10,7 +10,6 @@ namespace PRG282_Project.DataLayer
     class FileHandler
     {
         //Define all methods to read and write to the textfile and database.        
-
     
         private string path = AppDomain.CurrentDomain.BaseDirectory + "Login.txt";
 
@@ -58,7 +57,6 @@ namespace PRG282_Project.DataLayer
                 file.WriteLine(user + "," + pass);
                 
             }
-
             return "True";
         }
 

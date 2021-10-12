@@ -55,6 +55,7 @@
     </Compile>
     <Compile Include="BusinessLogicLayer\Student.cs" />
     <Compile Include="DataLayer\FileHandler.cs" />
+    <Compile Include="PresentationLayer\EmptyTextException.cs" />
     <Compile Include="PresentationLayer\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +125,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bc6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bc7.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
