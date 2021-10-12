@@ -13,7 +13,7 @@ namespace PRG282_Project.PresentationLayer
 {
     public partial class Form3 : Form
     {
-        FileHandler file = new FileHandler();
+        
         public Form3()
         {
             InitializeComponent();
@@ -31,13 +31,17 @@ namespace PRG282_Project.PresentationLayer
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if(file.Register(txtName.Text, txtPassword.Text) == "True")
+            FileHandler file = new FileHandler();
+            string user = txtName.Text;
+            string pass = txtPassword.Text;
+            if(user == "" || pass == "" || user.Contains(",") || pass.Contains(","))
             {
-                MessageBox.Show("Registered Successfully");
+                MessageBox.Show("You can not leave these fields empty or have a ',' in them.")
             }
             else
             {
-                MessageBox.Show("Try Again");
+                file.Register(user, pass);
+                MessageBox.Show("Registered Successfully");
             }
         }
 
