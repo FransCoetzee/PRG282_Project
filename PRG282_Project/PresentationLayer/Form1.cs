@@ -28,7 +28,16 @@ namespace PRG282_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            FileHandler file = new FileHandler();
+            if (file.Login(textBox1.Text, textBox2.Text))
+            {
+                Form2 login = new Form2();
+                this.Hide();
+                login.Show();
+            }
+            else {
+                MessageBox.Show("Username or password is incorrect");
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
