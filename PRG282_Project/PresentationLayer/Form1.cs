@@ -7,15 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using PRG282_Project.DataLayer;
 using PRG282_Project.BusinessLogicLayer;
 
 
-namespace PRG282_Project
+namespace PRG282_Project.PresentationLayer
 {
     public partial class frmLogin : Form
     {
+        FileHandler file = new FileHandler();
         public frmLogin()
         {
             InitializeComponent();
@@ -28,12 +28,12 @@ namespace PRG282_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FileHandler file = new FileHandler();
+            
             if (file.Login(textBox1.Text, textBox2.Text))
             {
-                Form2 login = new Form2();
+                Form2 Login = new Form2();
                 this.Hide();
-                login.Show();
+                Login.Show();
             }
             else {
                 MessageBox.Show("Username or password is incorrect");
@@ -42,7 +42,9 @@ namespace PRG282_Project
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            Form3 Register = new Form3();
+            this.Hide();
+            Register.Show();
         }
     }
 }

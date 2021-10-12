@@ -53,7 +53,6 @@ namespace PRG282_Project.PresentationLayer
             this.txtID = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -63,14 +62,15 @@ namespace PRG282_Project.PresentationLayer
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -205,6 +205,7 @@ namespace PRG282_Project.PresentationLayer
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(415, 24);
             this.txtDescription.TabIndex = 19;
+            this.txtDescription.TextChanged += new System.EventHandler(this.txtDescription_TextChanged);
             // 
             // cmbModule
             // 
@@ -293,14 +294,6 @@ namespace PRG282_Project.PresentationLayer
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(146, 24);
             this.txtAddress.TabIndex = 11;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(714, 31);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(202, 175);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // label11
             // 
@@ -392,15 +385,6 @@ namespace PRG282_Project.PresentationLayer
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Menu";
             // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = global::PRG282_Project.Properties.Resources.bc3;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(323, 1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(349, 99);
-            this.panel1.TabIndex = 31;
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -422,6 +406,23 @@ namespace PRG282_Project.PresentationLayer
             this.label13.TabIndex = 25;
             this.label13.Text = "Wired";
             // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::PRG282_Project.Properties.Resources.bc3;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Location = new System.Drawing.Point(323, 1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(349, 99);
+            this.panel1.TabIndex = 31;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(714, 31);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(202, 175);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -441,10 +442,10 @@ namespace PRG282_Project.PresentationLayer
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

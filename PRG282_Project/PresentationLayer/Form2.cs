@@ -77,5 +77,10 @@ namespace PRG282_Project.PresentationLayer
             dataGridView1.DataSource = data.SearchStudent(id);
 
         }
+
+        private void txtDescription_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

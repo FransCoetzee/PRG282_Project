@@ -1,5 +1,5 @@
 ﻿
-namespace PRG282_Project
+namespace PRG282_Project.PresentationLayer
 {
     partial class frmLogin
     {

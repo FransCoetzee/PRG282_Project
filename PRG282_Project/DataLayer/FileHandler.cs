@@ -50,13 +50,16 @@ namespace PRG282_Project.DataLayer
         }
 
         //2 -  method to write to the textfile when registering a new user
-        public void Register(string user, string pass)
+        public string Register(string user, string pass)
         {
             CheckCreateFile();
             using (StreamWriter file = File.AppendText(path))
             {
                 file.WriteLine(user + "," + pass);
+                
             }
+
+            return "True";
         }
 
 
