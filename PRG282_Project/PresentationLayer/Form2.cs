@@ -53,7 +53,7 @@ namespace PRG282_Project.PresentationLayer
                     pictureBox1.Image = Image.FromFile(filename);
                     string[] file = filename.Split('.');
 
-                    data.InsertImage(file[0], pictureBox1.Image);
+                    data.InsertImage(file[0], pictureBox1.Image);//I think this is where it takes the picture that's in the piture box into the database
                 }
             }
 
@@ -74,8 +74,8 @@ namespace PRG282_Project.PresentationLayer
             string moduleDesc = txtDescription.Text;
             string onlinelink = txtLink.Text;
 
-            Student student = new Student();
-            data.updateStudent(id.ToString(), name, surname, dob, gender, phone, address, modulecode, modulename, moduleDesc, onlinelink);
+            Student temp = new Student(id, name, surname, dob, gender, phone, address, modulecode, modulename, moduleDesc, onlinelink);
+            data.updateStudent(temp);
             MessageBox.Show($"Student {id} has been updated successfully");
         }
 
@@ -100,6 +100,18 @@ namespace PRG282_Project.PresentationLayer
         private void button1_Click(object sender, EventArgs e)
         {
             //This is how you load an image from your file explorer
+            //Image image = null;
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            using (OpenFileDialog ofg = new OpenFileDialog() { Multiselect = false, ValidateNames = true, Filter = "Images|*.jpg;*png;*jpeg;*jfif" })
+            {
+                if (ofg.ShowDialog() == DialogResult.OK)
+                {
+                    string filename = ofg.FileName;
+                    pictureBox1.Image = Image.FromFile(filename);
+                    textBox1.Text = filename;
+                }
+            }
+
         }
     }
 }
