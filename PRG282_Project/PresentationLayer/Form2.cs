@@ -37,11 +37,7 @@ namespace PRG282_Project.PresentationLayer
             string gender = cmbGender.Text;
             string phone = txtPhone.Text;
             string address = txtAddress.Text;
-            string modulecode = cmbModule.Text;
-            string modulename = txtModName.Text;
-            string moduleDesc = txtDescription.Text;
-            string onlinelink = txtLink.Text;
-            Student temp = new Student(id, name, surname, dob, gender, phone, address, modulecode, modulename, moduleDesc, onlinelink);
+            Student temp = new Student(id, name, surname, dob, gender, phone, address);
             data.insertStudent(temp);            
 
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -69,12 +65,8 @@ namespace PRG282_Project.PresentationLayer
             string gender = cmbGender.Text;
             string phone = txtPhone.Text;
             string address = txtAddress.Text;
-            string modulecode = cmbModule.Text;
-            string modulename = txtModName.Text;
-            string moduleDesc = txtDescription.Text;
-            string onlinelink = txtLink.Text;
 
-            Student temp = new Student(id, name, surname, dob, gender, phone, address, modulecode, modulename, moduleDesc, onlinelink);
+            Student temp = new Student(id, name, surname, dob, gender, phone, address);
             data.updateStudent(temp);
             MessageBox.Show($"Student {id} has been updated successfully");
         }
@@ -112,6 +104,13 @@ namespace PRG282_Project.PresentationLayer
                 }
             }
 
+        }
+
+        private void btnMod_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form4 frm = new Form4();
+            frm.Show();
         }
     }
 }

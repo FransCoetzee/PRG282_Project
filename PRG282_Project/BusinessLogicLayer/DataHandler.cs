@@ -34,11 +34,51 @@ namespace PRG282_Project.BusinessLogicLayer
             }
         }
 
-     /*   public DataTable DisplayStudents()
+        public SqlDataReader getStudents()
         {
-          
+            Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Student", connect);
+            SqlDataReader reader = cmd.ExecuteReader();
+            return reader;
         }
-     */
+
+        public SqlDataReader getModule()
+        {
+            Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Module", connect);
+            SqlDataReader reader = cmd.ExecuteReader();
+            return reader;
+        }
+
+        public void insertModule(string code, string name, string description, string link)
+        {
+            Open();
+            string query = $"INSERT INTO Module VALUES ({code},{name},{description},{link})";
+            SqlCommand cmd = new SqlCommand(query, connect);
+            SqlDataReader reader = cmd.ExecuteReader();
+            cmd.ExecuteNonQuery();
+            Close();
+        }
+
+        public void updateModule(string code, string name, string description, string link)
+        {
+            Open();
+            string query = $"UPDATE Module SET (ModuleCode,ModuleName,ModuleDescription,OnlineLink) = ({code},{name},{description},{link})";
+            SqlCommand cmd = new SqlCommand(query, connect);
+            SqlDataReader reader = cmd.ExecuteReader();
+            cmd.ExecuteNonQuery();
+            Close();
+        }
+
+        public void deleteModule(string code)
+        {
+            Open();
+            string query = $"DELETE FROM Module WHERE ModuleCode = {code}";
+            SqlCommand cmd = new SqlCommand(query, connect);
+            SqlDataReader reader = cmd.ExecuteReader();
+            cmd.ExecuteNonQuery();
+            Close();
+        }
 
         public string getValue(string id, string category, string table)
         {
