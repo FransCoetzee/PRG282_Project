@@ -58,13 +58,6 @@ namespace PRG282_Project.BusinessLogicLayer
                 return dt;
             }
         }
-        public SqlDataReader getModule()
-        {
-            Open();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Module", connect);
-            SqlDataReader reader = cmd.ExecuteReader();
-            return reader;
-        }
 
         public void insertModule(string name, string description, string link)
         {
