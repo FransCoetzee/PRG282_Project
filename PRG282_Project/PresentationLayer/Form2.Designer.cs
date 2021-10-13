@@ -42,6 +42,8 @@ namespace PRG282_Project.PresentationLayer
             this.label10 = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtMC = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -61,8 +63,6 @@ namespace PRG282_Project.PresentationLayer
             this.searchStudentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitAppliationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtMC = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -77,83 +77,83 @@ namespace PRG282_Project.PresentationLayer
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(9, 86);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 106);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(559, 194);
+            this.dataGridView1.Size = new System.Drawing.Size(745, 239);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(48, 84);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(64, 103);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 15);
+            this.label1.Size = new System.Drawing.Size(52, 18);
             this.label1.TabIndex = 2;
             this.label1.Text = "Name:";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(102, 87);
-            this.txtName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtName.Location = new System.Drawing.Point(136, 107);
+            this.txtName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(110, 21);
+            this.txtName.Size = new System.Drawing.Size(145, 24);
             this.txtName.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 128);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(44, 158);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 15);
+            this.label2.Size = new System.Drawing.Size(72, 18);
             this.label2.TabIndex = 4;
             this.label2.Text = "Surname:";
             // 
             // txtSurname
             // 
-            this.txtSurname.Location = new System.Drawing.Point(102, 134);
-            this.txtSurname.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSurname.Location = new System.Drawing.Point(136, 165);
+            this.txtSurname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSurname.Name = "txtSurname";
-            this.txtSurname.Size = new System.Drawing.Size(110, 21);
+            this.txtSurname.Size = new System.Drawing.Size(145, 24);
             this.txtSurname.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(339, 43);
+            this.label3.Location = new System.Drawing.Point(452, 53);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 15);
+            this.label3.Size = new System.Drawing.Size(94, 18);
             this.label3.TabIndex = 6;
             this.label3.Text = "Date of Birth:";
             // 
             // txtBirth
             // 
-            this.txtBirth.Location = new System.Drawing.Point(453, 40);
+            this.txtBirth.Location = new System.Drawing.Point(604, 49);
+            this.txtBirth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtBirth.Name = "txtBirth";
-            this.txtBirth.Size = new System.Drawing.Size(132, 21);
+            this.txtBirth.Size = new System.Drawing.Size(175, 24);
             this.txtBirth.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(526, 89);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(701, 110);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 15);
+            this.label4.Size = new System.Drawing.Size(61, 18);
             this.label4.TabIndex = 8;
             this.label4.Text = "Gender:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(371, 168);
+            this.label5.Location = new System.Drawing.Point(495, 207);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 15);
+            this.label5.Size = new System.Drawing.Size(66, 18);
             this.label5.TabIndex = 10;
             this.label5.Text = "Address:";
             // 
@@ -164,28 +164,27 @@ namespace PRG282_Project.PresentationLayer
             "Female",
             "Male",
             "Other"});
-            this.cmbGender.Location = new System.Drawing.Point(584, 89);
-            this.cmbGender.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbGender.Location = new System.Drawing.Point(779, 110);
+            this.cmbGender.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbGender.Name = "cmbGender";
-            this.cmbGender.Size = new System.Drawing.Size(110, 23);
+            this.cmbGender.Size = new System.Drawing.Size(145, 26);
             this.cmbGender.TabIndex = 21;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(499, 32);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Location = new System.Drawing.Point(665, 39);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(94, 15);
+            this.label10.Size = new System.Drawing.Size(112, 18);
             this.label10.TabIndex = 22;
             this.label10.Text = "Phone Number:";
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(584, 30);
-            this.txtPhone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPhone.Location = new System.Drawing.Point(779, 37);
+            this.txtPhone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(110, 21);
+            this.txtPhone.Size = new System.Drawing.Size(145, 24);
             this.txtPhone.TabIndex = 23;
             // 
             // groupBox1
@@ -210,19 +209,39 @@ namespace PRG282_Project.PresentationLayer
             this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(9, 285);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Location = new System.Drawing.Point(12, 351);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(962, 280);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(1283, 345);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Student Details";
             // 
+            // txtMC
+            // 
+            this.txtMC.Location = new System.Drawing.Point(604, 121);
+            this.txtMC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMC.Name = "txtMC";
+            this.txtMC.Size = new System.Drawing.Size(232, 24);
+            this.txtMC.TabIndex = 30;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(452, 124);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(101, 18);
+            this.label6.TabIndex = 29;
+            this.label6.Text = "Module Code:";
+            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(728, 222);
+            this.button1.Location = new System.Drawing.Point(971, 273);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(79, 21);
+            this.button1.Size = new System.Drawing.Size(105, 26);
             this.button1.TabIndex = 28;
             this.button1.Text = "Load Picture";
             this.button1.UseVisualStyleBackColor = true;
@@ -230,49 +249,51 @@ namespace PRG282_Project.PresentationLayer
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(254, 224);
+            this.textBox1.Location = new System.Drawing.Point(339, 276);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(442, 24);
+            this.textBox1.Size = new System.Drawing.Size(588, 24);
             this.textBox1.TabIndex = 27;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(125, 230);
+            this.label15.Location = new System.Drawing.Point(167, 283);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(105, 15);
+            this.label15.Size = new System.Drawing.Size(123, 18);
             this.label15.TabIndex = 26;
             this.label15.Text = "Image File Name:";
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(128, 40);
+            this.txtID.Location = new System.Drawing.Point(171, 49);
+            this.txtID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(110, 21);
+            this.txtID.Size = new System.Drawing.Size(145, 24);
             this.txtID.TabIndex = 25;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(68, 30);
-            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label14.Location = new System.Drawing.Point(91, 37);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(22, 15);
+            this.label14.Size = new System.Drawing.Size(26, 18);
             this.label14.TabIndex = 24;
             this.label14.Text = "ID:";
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(453, 165);
+            this.txtAddress.Location = new System.Drawing.Point(604, 203);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(472, 24);
+            this.txtAddress.Size = new System.Drawing.Size(628, 24);
             this.txtAddress.TabIndex = 11;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(16, 35);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Location = new System.Drawing.Point(21, 43);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(63, 17);
             this.label11.TabIndex = 24;
@@ -280,19 +301,21 @@ namespace PRG282_Project.PresentationLayer
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(101, 38);
+            this.txtSearch.Location = new System.Drawing.Point(135, 47);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(187, 22);
+            this.txtSearch.Size = new System.Drawing.Size(248, 22);
             this.txtSearch.TabIndex = 25;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txtSearch);
             this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Location = new System.Drawing.Point(323, 646);
+            this.groupBox2.Location = new System.Drawing.Point(431, 795);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox2.Size = new System.Drawing.Size(254, 72);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Size = new System.Drawing.Size(339, 89);
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Search Student";
@@ -301,9 +324,10 @@ namespace PRG282_Project.PresentationLayer
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("MS Reference Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(329, 751);
+            this.label12.Location = new System.Drawing.Point(439, 924);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(187, 24);
+            this.label12.Size = new System.Drawing.Size(233, 29);
             this.label12.TabIndex = 24;
             this.label12.Text = "It\'s the way we\'re ";
             // 
@@ -312,9 +336,10 @@ namespace PRG282_Project.PresentationLayer
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Pristina", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(570, 745);
+            this.label13.Location = new System.Drawing.Point(760, 917);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(72, 35);
+            this.label13.Size = new System.Drawing.Size(91, 44);
             this.label13.TabIndex = 25;
             this.label13.Text = "Wired";
             // 
@@ -325,8 +350,8 @@ namespace PRG282_Project.PresentationLayer
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(744, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1323, 28);
             this.menuStrip1.TabIndex = 32;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -339,41 +364,41 @@ namespace PRG282_Project.PresentationLayer
             this.searchStudentToolStripMenuItem,
             this.exitAppliationToolStripMenuItem});
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(60, 24);
             this.menuToolStripMenuItem.Text = "Menu";
             // 
             // addNewStudentToolStripMenuItem
             // 
             this.addNewStudentToolStripMenuItem.Name = "addNewStudentToolStripMenuItem";
-            this.addNewStudentToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.addNewStudentToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.addNewStudentToolStripMenuItem.Text = "Add New Student";
             this.addNewStudentToolStripMenuItem.Click += new System.EventHandler(this.addNewStudentToolStripMenuItem_Click);
             // 
             // updateStudentToolStripMenuItem
             // 
             this.updateStudentToolStripMenuItem.Name = "updateStudentToolStripMenuItem";
-            this.updateStudentToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.updateStudentToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.updateStudentToolStripMenuItem.Text = "Update Student";
             this.updateStudentToolStripMenuItem.Click += new System.EventHandler(this.updateStudentToolStripMenuItem_Click);
             // 
             // deleteStudentToolStripMenuItem
             // 
             this.deleteStudentToolStripMenuItem.Name = "deleteStudentToolStripMenuItem";
-            this.deleteStudentToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.deleteStudentToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.deleteStudentToolStripMenuItem.Text = "Delete Student";
             this.deleteStudentToolStripMenuItem.Click += new System.EventHandler(this.deleteStudentToolStripMenuItem_Click);
             // 
             // searchStudentToolStripMenuItem
             // 
             this.searchStudentToolStripMenuItem.Name = "searchStudentToolStripMenuItem";
-            this.searchStudentToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.searchStudentToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.searchStudentToolStripMenuItem.Text = "Search Student";
             this.searchStudentToolStripMenuItem.Click += new System.EventHandler(this.searchStudentToolStripMenuItem_Click);
             // 
             // exitAppliationToolStripMenuItem
             // 
             this.exitAppliationToolStripMenuItem.Name = "exitAppliationToolStripMenuItem";
-            this.exitAppliationToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.exitAppliationToolStripMenuItem.Size = new System.Drawing.Size(209, 26);
             this.exitAppliationToolStripMenuItem.Text = "Exit Appliation";
             this.exitAppliationToolStripMenuItem.Click += new System.EventHandler(this.exitAppliationToolStripMenuItem_Click);
             // 
@@ -381,51 +406,39 @@ namespace PRG282_Project.PresentationLayer
             // 
             this.panel1.BackgroundImage = global::PRG282_Project.Properties.Resources.bc3;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Location = new System.Drawing.Point(242, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Location = new System.Drawing.Point(323, 1);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(262, 80);
+            this.panel1.Size = new System.Drawing.Size(349, 98);
             this.panel1.TabIndex = 31;
-            // 
-            // txtMC
-            // 
-            this.txtMC.Location = new System.Drawing.Point(453, 98);
-            this.txtMC.Name = "txtMC";
-            this.txtMC.Size = new System.Drawing.Size(175, 24);
-            this.txtMC.TabIndex = 30;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(339, 101);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(101, 18);
-            this.label6.TabIndex = 29;
-            this.label6.Text = "Module Code:";
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.pictureBox1);
-            this.groupBox3.Location = new System.Drawing.Point(774, 100);
+            this.groupBox3.Location = new System.Drawing.Point(1032, 123);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(200, 245);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Size = new System.Drawing.Size(267, 302);
             this.groupBox3.TabIndex = 33;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Student Image";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(6, 21);
+            this.pictureBox1.Location = new System.Drawing.Point(8, 26);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(188, 210);
+            this.pictureBox1.Size = new System.Drawing.Size(251, 258);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(740, 664);
+            this.button2.Location = new System.Drawing.Point(987, 817);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(105, 48);
+            this.button2.Size = new System.Drawing.Size(140, 59);
             this.button2.TabIndex = 34;
             this.button2.Text = "Insert Module";
             this.button2.UseVisualStyleBackColor = true;
@@ -433,10 +446,10 @@ namespace PRG282_Project.PresentationLayer
             // 
             // Form2
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(992, 800);
+            this.ClientSize = new System.Drawing.Size(1323, 985);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label12);
@@ -447,7 +460,7 @@ namespace PRG282_Project.PresentationLayer
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form2";
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
@@ -499,10 +512,12 @@ namespace PRG282_Project.PresentationLayer
         private System.Windows.Forms.ToolStripMenuItem searchStudentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitAppliationToolStripMenuItem;
         private System.Windows.Forms.Button button1;
+
         private System.Windows.Forms.TextBox txtMC;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button2;
+
     }
 }

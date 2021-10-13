@@ -34,15 +34,20 @@ namespace PRG282_Project.BusinessLogicLayer
             }
         }
 
-        public DataTable DisplayStudents()
-        public SqlDataReader getStudents()
-        {
-            Open();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Student", connect);
-            SqlDataReader reader = cmd.ExecuteReader();
-            return reader;
-        }
 
+        public DataTable DisplayStudents()
+        {
+            using (connect)
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter("spGetStudents", connect);
+                adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                return dt;
+            }
+        }
+     
         public SqlDataReader getModule()
         {
             Open();
@@ -63,18 +68,6 @@ namespace PRG282_Project.BusinessLogicLayer
 
         public void updateModule(string code, string name, string description, string link)
         {
-            using (connect)
-            {
-                SqlDataAdapter adapter = new SqlDataAdapter("spGetStudents", connect);
-                adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
-
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-                return dt;
-            }
-        }
-     
-
             Open();
             string query = $"UPDATE Module SET (ModuleCode,ModuleName,ModuleDescription,OnlineLink) = ({code},{name},{description},{link})";
             SqlCommand cmd = new SqlCommand(query, connect);
@@ -91,19 +84,6 @@ namespace PRG282_Project.BusinessLogicLayer
             SqlDataReader reader = cmd.ExecuteReader();
             cmd.ExecuteNonQuery();
             Close();
-        }
-
-        public string getValue(string id, string category, string table)
-        {
-            Open();
-            SqlCommand cmd = new SqlCommand("SELECT @category FROM @table WHERE ID = @id", connect);
-            cmd.Parameters.AddWithValue("@table", table);
-            cmd.Parameters.AddWithValue("@category", category);
-            cmd.Parameters.AddWithValue("@id", id);
-            SqlDataReader reader = cmd.ExecuteReader();
-            cmd.ExecuteNonQuery();
-            Close();
-            return reader.ToString();
         }
 
         //Insert Image to the database from vs
@@ -155,17 +135,7 @@ namespace PRG282_Project.BusinessLogicLayer
         }
      
         public void updateStudent(int id,string name, string surname, string dob, string gender, string phone, string addy,int modulecode)
-        {
-            /*  Open();
-             SqlCommand cmd = new SqlCommand("UPDATE @table SET @category = @value WHERE ID = @id", connect);
-             cmd.Parameters.AddWithValue("@table", table);
-             cmd.Parameters.AddWithValue("@category", category);
-             cmd.Parameters.AddWithValue("@value", value);
-             cmd.Parameters.AddWithValue("@id", id);
-             cmd.ExecuteNonQuery();
-             Close(); */
-
-            
+        {            
             using (connect)
             {
                 SqlCommand cmd = new SqlCommand("spUpdateStudents", connect);
@@ -186,16 +156,8 @@ namespace PRG282_Project.BusinessLogicLayer
 
         }
 
-        public bool deleteData(/*string table, string column,*/ string id)
+        public bool deleteData( string id)
         {
-            /* Open();
-             SqlCommand cmd = new SqlCommand("DELETE FROM @table WHERE @column = @id", connect); //cmd.CommandText = "DELETE FROM Logins WHERE ID = @id"; cmd.Connection Connect;
-             cmd.Parameters.AddWithValue("@table", table);
-             cmd.Parameters.AddWithValue("@column", column);
-             cmd.Parameters.AddWithValue("@id", id);
-             cmd.ExecuteNonQuery();
-             Close();*/
-          
             try
             {
                 using (connect)

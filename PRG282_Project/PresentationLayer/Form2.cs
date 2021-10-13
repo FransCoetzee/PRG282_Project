@@ -40,11 +40,13 @@ namespace PRG282_Project.PresentationLayer
             string gender = cmbGender.Text;
             string phone = txtPhone.Text;
             string address = txtAddress.Text;
+
             int pictureno = 10160;
             int modulecode = int.Parse(txtMC.Text);
             //ADD THE INSERT METHOD HERE
             data.insertStudent(name, surname, dob, gender, phone, address, pictureno, modulecode);
             pictureno = pictureno + 15;
+
 
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             using (OpenFileDialog ofg = new OpenFileDialog() {Multiselect = false, ValidateNames = true, Filter = "Images|*.jpg;*png;*jpeg;*jfif" })
@@ -75,6 +77,7 @@ namespace PRG282_Project.PresentationLayer
             string gender = cmbGender.Text;
             string phone = txtPhone.Text;
             string address = txtAddress.Text;
+
             int modulecode = int.Parse(txtMC.Text);
 
             data.updateStudent(id, name, surname, dob, gender, phone, address, modulecode);
@@ -94,11 +97,11 @@ namespace PRG282_Project.PresentationLayer
                     data.InsertImage(file[0], pictureBox1.Image);
                 }
               }
-                 MessageBox.Show("Student Data Updated Successfully");
+                MessageBox.Show($"Student {id} has been updated successfully");
             }
             else
             {
-                   MessageBox.Show("Student Data Updated Successfully");
+                MessageBox.Show($"Student {id} has been updated successfully");
             }                        
         }
 
@@ -137,7 +140,6 @@ namespace PRG282_Project.PresentationLayer
 
         }
 
-        }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {                                  
@@ -178,6 +180,13 @@ namespace PRG282_Project.PresentationLayer
             Form4 Module = new Form4();
             Module.Show();
             this.Hide();
+        }
+        private void btnMod_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form4 frm = new Form4();
+            frm.Show();
+
         }
     }
 }
