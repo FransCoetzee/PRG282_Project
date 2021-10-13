@@ -53,7 +53,6 @@ namespace PRG282_Project.PresentationLayer
             this.txtID = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtAddress = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -66,11 +65,12 @@ namespace PRG282_Project.PresentationLayer
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -210,6 +210,15 @@ namespace PRG282_Project.PresentationLayer
             // cmbModule
             // 
             this.cmbModule.FormattingEnabled = true;
+            this.cmbModule.Items.AddRange(new object[] {
+            "DBD281",
+            "INF281",
+            "MAT281",
+            "PMM281",
+            "PRG281",
+            "PRG282",
+            "SAD281",
+            "WPR281"});
             this.cmbModule.Location = new System.Drawing.Point(501, 71);
             this.cmbModule.Name = "cmbModule";
             this.cmbModule.Size = new System.Drawing.Size(146, 26);
@@ -218,6 +227,10 @@ namespace PRG282_Project.PresentationLayer
             // cmbGender
             // 
             this.cmbGender.FormattingEnabled = true;
+            this.cmbGender.Items.AddRange(new object[] {
+            "Female",
+            "Male",
+            "Other"});
             this.cmbGender.Location = new System.Drawing.Point(136, 219);
             this.cmbGender.Name = "cmbGender";
             this.cmbGender.Size = new System.Drawing.Size(146, 26);
@@ -294,14 +307,6 @@ namespace PRG282_Project.PresentationLayer
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(146, 24);
             this.txtAddress.TabIndex = 11;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(714, 31);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(202, 175);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // label11
             // 
@@ -424,6 +429,14 @@ namespace PRG282_Project.PresentationLayer
             this.panel1.Size = new System.Drawing.Size(349, 99);
             this.panel1.TabIndex = 31;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(714, 31);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(202, 175);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -443,10 +456,10 @@ namespace PRG282_Project.PresentationLayer
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

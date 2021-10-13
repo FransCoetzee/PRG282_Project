@@ -54,6 +54,7 @@ namespace PRG282_Project.PresentationLayer
             string moduleDesc = txtDescription.Text;
             string onlinelink = txtLink.Text;
 
+            Student student = new Student();
             data.updateStudent(id.ToString(), name, surname, dob, gender, phone, address, modulecode, modulename, moduleDesc, onlinelink);
             MessageBox.Show($"Student {id} has been updated successfully");
 

@@ -10,6 +10,8 @@ namespace PRG282_Project.BusinessLogicLayer
 {
     class Student
     {
+        public Student() { }
+
         int id;
         string name;
         string surname;

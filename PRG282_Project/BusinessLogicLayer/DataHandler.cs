@@ -93,6 +93,7 @@ namespace PRG282_Project.BusinessLogicLayer
                 connect.Open();
                 cmd.ExecuteNonQuery();
             }
+            //When the user picks the module, whatever module code is selected, the rest of the information should apprear in the text boxes
         }
         /*
         public void insertStudentModule(string id, string module)
@@ -152,7 +153,7 @@ namespace PRG282_Project.BusinessLogicLayer
 
         }
 
-        public void deleteData(/*string table, string column,*/ string id)
+        public bool deleteData(/*string table, string column,*/ string id)
         {
             /* Open();
              SqlCommand cmd = new SqlCommand("DELETE FROM @table WHERE @column = @id", connect); //cmd.CommandText = "DELETE FROM Logins WHERE ID = @id"; cmd.Connection Connect;
@@ -161,16 +162,26 @@ namespace PRG282_Project.BusinessLogicLayer
              cmd.Parameters.AddWithValue("@id", id);
              cmd.ExecuteNonQuery();
              Close();*/
+
             string conn = "Server=.; Initial Catalog= BelgiumCampusStudents; Integrated Security = SSPI";
-            using (SqlConnection connect = new SqlConnection(conn))
+            try
             {
-                SqlCommand cmd = new SqlCommand("spDeleteStudents", connect);
-                cmd.CommandType = CommandType.StoredProcedure;
+                using (SqlConnection connect = new SqlConnection(conn))
+                {
+                    SqlCommand cmd = new SqlCommand("spDeleteStudents", connect);
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@Id", id);
+                    cmd.Parameters.AddWithValue("@Id", id);
 
-                connect.Open();
-                cmd.ExecuteNonQuery();
+                    connect.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+
+               return false;
             }
         }
 
