@@ -87,6 +87,15 @@ namespace PRG282_Project.PresentationLayer
             
             MessageBox.Show($"Student {id} has been updated successfully");
             loaddata();
+            txtAddress.Clear();
+            txtBirth.Clear();
+            txtID.Clear();
+            txtMC.Clear();
+            txtName.Clear();
+            txtPhone.Clear();
+            txtSearch.Clear();
+            txtSurname.Clear();
+            cmbGender.SelectedItem = null;
 
         }
 
@@ -102,6 +111,15 @@ namespace PRG282_Project.PresentationLayer
                 MessageBox.Show("Data was not deleted.");
             }
             loaddata();
+            txtAddress.Clear();
+            txtBirth.Clear();
+            txtID.Clear();
+            txtMC.Clear();
+            txtName.Clear();
+            txtPhone.Clear();
+            txtSearch.Clear();
+            txtSurname.Clear();
+            cmbGender.SelectedItem = null;
         }
 
         private void searchStudentToolStripMenuItem_Click(object sender, EventArgs e)

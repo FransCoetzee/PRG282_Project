@@ -27,6 +27,10 @@ namespace PRG282_Project.PresentationLayer
             //Only take it  for update, search and delete
             db.insertModule(txtModName.Text, txtDescription.Text, txtLink.Text);
             loaddata();
+            txtCode.Clear();
+            txtDescription.Clear();
+            txtLink.Clear();
+            txtModName.Clear();
         }
 
         private void Form4_Load(object sender, EventArgs e)
@@ -38,12 +42,20 @@ namespace PRG282_Project.PresentationLayer
         {
             db.updateModule(txtCode.Text,txtModName.Text, txtDescription.Text, txtLink.Text);
             loaddata();
+            txtCode.Clear();
+            txtDescription.Clear();
+            txtLink.Clear();
+            txtModName.Clear();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             db.deleteModule(txtCode.Text);
             loaddata();
+            txtCode.Clear();
+            txtDescription.Clear();
+            txtLink.Clear();
+            txtModName.Clear();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
