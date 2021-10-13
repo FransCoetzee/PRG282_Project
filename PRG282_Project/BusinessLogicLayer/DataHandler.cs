@@ -48,7 +48,7 @@ namespace PRG282_Project.BusinessLogicLayer
 
         public DataTable DisplayStudents()
         {
-            using (connect)
+            using (SqlConnection connect = new SqlConnection("Server=.; Initial Catalog= BelgiumCampusStudents; Integrated Security = SSPI"))
             {
                 SqlDataAdapter adapter = new SqlDataAdapter("spGetStudents", connect);
                 adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -111,12 +111,13 @@ namespace PRG282_Project.BusinessLogicLayer
         }
 
         public void insertStudent(string name, string surname, string dob, string gender, string phone, string addy, int pictureno, int modulecode)//Still needs to be tested, specifically with the picture
-        {                                
-                
+        {
+            using (SqlConnection connect = new SqlConnection("Server=.; Initial Catalog= BelgiumCampusStudents; Integrated Security = SSPI"))
+            {
                 SqlCommand cmd = new SqlCommand("spAddStudents", connect);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                
+
                 cmd.Parameters.AddWithValue("@Name", name);
                 cmd.Parameters.AddWithValue("@Surname", surname);
                 cmd.Parameters.AddWithValue("@dob", dob);
@@ -126,16 +127,17 @@ namespace PRG282_Project.BusinessLogicLayer
                 cmd.Parameters.AddWithValue("@PictureNo", pictureno);
                 cmd.Parameters.AddWithValue("@ModuleCode", modulecode);
 
-            Open();
-            cmd.ExecuteNonQuery();
+                Open();
+                cmd.ExecuteNonQuery();
+            }
                           
         }
      
         public void updateStudent(int id,string name, string surname, string dob, string gender, string phone, string addy,int modulecode)
         {            
-            using (connect)
+            using (SqlConnection connect = new SqlConnection("Server=.; Initial Catalog= BelgiumCampusStudents; Integrated Security = SSPI"))
             {
-                Open();
+                
                 SqlCommand cmd = new SqlCommand("spUpdateStudents", connect);
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -146,10 +148,10 @@ namespace PRG282_Project.BusinessLogicLayer
                 cmd.Parameters.AddWithValue("@Gender", gender);
                 cmd.Parameters.AddWithValue("@Phone",phone);
                 cmd.Parameters.AddWithValue("@Address", addy);
-                cmd.Parameters.AddWithValue("@ModuleCode", modulecode);                          
-               
+                cmd.Parameters.AddWithValue("@ModuleCode", modulecode);
+
+                Open();
                 cmd.ExecuteNonQuery();
-                Close();
             }
 
         }
@@ -158,7 +160,7 @@ namespace PRG282_Project.BusinessLogicLayer
         {
             try
             {
-                using (connect)
+                using (SqlConnection connect = new SqlConnection("Server=.; Initial Catalog= BelgiumCampusStudents; Integrated Security = SSPI"))
                 {
                     SqlCommand cmd = new SqlCommand("spDeleteStudents", connect);
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -180,7 +182,7 @@ namespace PRG282_Project.BusinessLogicLayer
 
         public DataTable SearchStudent(int id)
         {            
-            using (connect)
+            using (SqlConnection connect = new SqlConnection("Server=.; Initial Catalog= BelgiumCampusStudents; Integrated Security = SSPI"))
             {
                 SqlCommand cmd = new SqlCommand("spSearchStudents",connect);
                 cmd.CommandType = CommandType.StoredProcedure;

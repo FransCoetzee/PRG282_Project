@@ -29,8 +29,7 @@ namespace PRG282_Project.PresentationLayer
         private void Form2_Load(object sender, EventArgs e)
         {
             //Display the students via the datagridview on the form load
-            dataGridView1.DataSource = data.DisplayStudents();
-            data.Close();
+            loaddata();
         }
       
         private void addNewStudentToolStripMenuItem_Click(object sender, EventArgs e)
@@ -98,26 +97,38 @@ namespace PRG282_Project.PresentationLayer
                     data.InsertImage(file[0], pictureBox1.Image);
                 }
               }
-                MessageBox.Show($"Student {id} has been updated successfully");
             }
-            else
-            {
-                MessageBox.Show($"Student {id} has been updated successfully");
-            }                        
+            MessageBox.Show($"Student {id} has been updated successfully");
+            loaddata();
+
         }
 
         private void deleteStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {           
             int id = int.Parse(txtID.Text);
-            data.deleteData(id.ToString());
-            MessageBox.Show("Data has been succesfully");
+            if (data.deleteData(id.ToString()))
+            {
+                MessageBox.Show("Data has been deleted successfully");
+            }
+            else
+            {
+                MessageBox.Show("Data was not deleted.");
+            }
+            loaddata();
         }
 
         private void searchStudentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(txtSearch.Text);
-            dataGridView1.DataSource = data.SearchStudent(id);
-            data.Close();
+            if(txtSearch.Text == "")
+            {
+                loaddata();
+            }
+            else
+            {
+                int id = int.Parse(txtSearch.Text);
+                dataGridView1.DataSource = data.SearchStudent(id);
+                data.Close();
+            }
         }
 
         private void exitAppliationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -188,6 +199,12 @@ namespace PRG282_Project.PresentationLayer
             Form4 frm = new Form4();
             frm.Show();
 
+        }
+
+        public void loaddata()
+        {
+            dataGridView1.DataSource = data.DisplayStudents();
+            data.Close();
         }
     }
 }
