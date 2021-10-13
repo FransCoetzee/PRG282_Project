@@ -24,8 +24,8 @@ namespace PRG282_Project.BusinessLogicLayer
         string modDescription;
         string onlinelink;
         Image picture;
-
-        public Student(int id, string name, string surname, string dob, string gender, string phone, string address, string modulecode, string moduleName, string modDescription, string onlinelink, Image picture)
+        //Declate two separte student constructors so you can and the info and the image separately
+        public Student(int id, string name, string surname, string dob, string gender, string phone, string address, string modulecode, string moduleName, string modDescription, string onlinelink)
         {
             this.id = id;
             this.name = name;
@@ -38,6 +38,10 @@ namespace PRG282_Project.BusinessLogicLayer
             this.moduleName = moduleName;
             this.modDescription = modDescription;
             this.onlinelink = onlinelink;
+        }
+
+        public Student(Image picture)
+        {
             this.picture = picture;
         }
 

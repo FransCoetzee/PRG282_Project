@@ -22,10 +22,7 @@ namespace PRG282_Project.PresentationLayer
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            //Validation
-            //Not empty and there shouldn't be any commas in any of the textboxes
-            //Make a customer exception for the comma
+        {            
             try
             {
                 if (textBox1.Text == string.Empty || textBox2.Text == string.Empty || textBox1.Text.Contains(",") || textBox2.Text.Contains(","))

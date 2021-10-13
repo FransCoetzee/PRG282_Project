@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 
 namespace PRG282_Project.BusinessLogicLayer
 {
@@ -36,14 +39,11 @@ namespace PRG282_Project.BusinessLogicLayer
             }
         }
 
-        public SqlDataReader getData(string table)
+     /*   public DataTable DisplayStudents()
         {
-            Open();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM @table", connect);
-            cmd.Parameters.AddWithValue("@table", table);
-            SqlDataReader reader = cmd.ExecuteReader();
-            return reader;
+          
         }
+     */
 
         public string getValue(string id, string category, string table)
         {
@@ -58,66 +58,57 @@ namespace PRG282_Project.BusinessLogicLayer
             return reader.ToString();
         }
 
-        public void insertStudent(string id, string name, string surname, string dob, string gender, string phone,string address, string modulecode, string modulename, string moduleDesc, string onlinelink)
+        //Insert Image to the database from vs
+        public void InsertImage(string filename, Image img)
         {
-            /*Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO Student (StudentID,sName,sSurname,DateOfBirth,Gender,Phone,sAddress) VALUES (@id,@name,@surname,@DOB,@gender,@phone,@address)", connect);
-            cmd.Parameters.AddWithValue("@id", id);
-            cmd.Parameters.AddWithValue("@name", name);
-            cmd.Parameters.AddWithValue("@surname", surname);
-            cmd.Parameters.AddWithValue("@DOB", dob);
-            cmd.Parameters.AddWithValue("@gender", gender);
-            cmd.Parameters.AddWithValue("@phone", phone);
-            cmd.Parameters.AddWithValue("@address", address);
-            cmd.ExecuteNonQuery();
-            Close();*/
+            string conn = "Server=.; Initial Catalog= BelgiumCampusStudents; Integrated Security = SSPI";
+            using (SqlConnection connect = new SqlConnection(conn))
+            {
+                connect.Open();
 
+                string query = $"INSERT INTO Picture(StudentImage,Filename) VALUES(@sImage,{filename})";
+                using (SqlCommand cmd = new SqlCommand(query,connect))
+                {
+                    MemoryStream ms = new MemoryStream();
+                    img.Save(ms, ImageFormat.Jpeg);
+
+                    byte[] arrPhoto = new byte[ms.Length];
+                    ms.Position = 0;
+                    ms.Read(arrPhoto, 0, arrPhoto.Length);
+
+                    cmd.Parameters.AddWithValue("@sImage", arrPhoto);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+
+        public void insertStudent(Student myStudent)//Still needs to be tested, specifically with the picture
+        {          
             string conn = "Server=.; Initial Catalog= BelgiumCampusStudents; Integrated Security = SSPI";
             using (SqlConnection connect = new SqlConnection(conn))
             {
                 SqlCommand cmd = new SqlCommand("spAddStudents", connect);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@StudentID", id);
-                cmd.Parameters.AddWithValue("@Name", name);
-                cmd.Parameters.AddWithValue("@Surname", surname);
-                cmd.Parameters.AddWithValue("@dob", dob);
-                cmd.Parameters.AddWithValue("@Gender", gender);
-                cmd.Parameters.AddWithValue("@Phone", phone);
-                cmd.Parameters.AddWithValue("@Address", address);
-                cmd.Parameters.AddWithValue("@ModuleCode", modulecode);
-                cmd.Parameters.AddWithValue("@ModuleName", modulename);
-                cmd.Parameters.AddWithValue("@ModDescription", moduleDesc);
-                cmd.Parameters.AddWithValue("@OnlineLink", onlinelink);
+                cmd.Parameters.AddWithValue("@StudentID", myStudent.Id);
+                cmd.Parameters.AddWithValue("@Name", myStudent.Name);
+                cmd.Parameters.AddWithValue("@Surname", myStudent.Surname);
+                cmd.Parameters.AddWithValue("@dob", myStudent.Dob);
+                cmd.Parameters.AddWithValue("@Gender", myStudent.Gender);
+                cmd.Parameters.AddWithValue("@Phone", myStudent.Phone);
+                cmd.Parameters.AddWithValue("@Address", myStudent.Address);
+                cmd.Parameters.AddWithValue("@ModuleCode", myStudent.Modulecode);
+                cmd.Parameters.AddWithValue("@ModuleName", myStudent.ModuleName);
+                cmd.Parameters.AddWithValue("@ModDescription", myStudent.ModDescription);
+                cmd.Parameters.AddWithValue("@OnlineLink", myStudent.Onlinelink);
 
                 connect.Open();
                 cmd.ExecuteNonQuery();
             }
             //When the user picks the module, whatever module code is selected, the rest of the information should apprear in the text boxes
         }
-        /*
-        public void insertStudentModule(string id, string module)
-        {
-            Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO Student (StudentID,ModuleCode) VALUES (@id,@module)", connect);
-            cmd.Parameters.AddWithValue("@id", id);
-            cmd.Parameters.AddWithValue("@module", module);
-            cmd.ExecuteNonQuery();
-            Close();
-        }
-
-        public void insertModule(string id, string name, string description, string link)
-        {
-            Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO Module VALUES (@id,@name,@description,@link)", connect);
-            cmd.Parameters.AddWithValue("@id", id);
-            cmd.Parameters.AddWithValue("@name", name);
-            cmd.Parameters.AddWithValue("@description", description);
-            cmd.Parameters.AddWithValue("@link", link);
-            cmd.ExecuteNonQuery();
-            Close();
-        }
-        */
+     
         public void updateStudent(string id, string name, string surname, string dob, string gender, string phone, string address, string modulecode, string modulename, string moduleDesc, string onlinelink)
         {
             /*  Open();
