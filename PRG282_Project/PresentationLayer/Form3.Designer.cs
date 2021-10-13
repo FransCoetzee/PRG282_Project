@@ -74,6 +74,7 @@ namespace PRG282_Project.PresentationLayer
             // 
             this.txtPassword.Location = new System.Drawing.Point(24, 176);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(290, 28);
             this.txtPassword.TabIndex = 31;
             // 
