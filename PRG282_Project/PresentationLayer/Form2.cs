@@ -137,6 +137,8 @@ namespace PRG282_Project.PresentationLayer
 
         }
 
+        }
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {                                  
             if (e.RowIndex >= 0)
