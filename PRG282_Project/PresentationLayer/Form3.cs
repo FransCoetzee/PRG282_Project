@@ -13,6 +13,7 @@ namespace PRG282_Project.PresentationLayer
 {
     public partial class Form3 : Form
     {
+        FileHandler file = new FileHandler();
         public Form3()
         {
             InitializeComponent();
@@ -21,27 +22,36 @@ namespace PRG282_Project.PresentationLayer
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if(file.Register(txtName.Text, txtPassword.Text) == "True")
+            {
+                MessageBox.Show("Registered Successfully");
+            }
+            else
+            {
+                MessageBox.Show("Try Again");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
             frmLogin Login = new frmLogin();
             this.Hide();
             Login.Show();
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
-            if (file.Register(txtName.Text, txtPassword.Text) == "True")
-            {
-                string user = txtName.Text;
-                string pass = txtPassword.Text;
-                if (user == "" || pass == "" || user.Contains(",") || pass.Contains(","))
-                {
-                    MessageBox.Show("You can not leave these fields empty or have a ',' in them.");
-                }
-                else
-                {
-                    file.Register(user, pass);
-                    MessageBox.Show("Registered Successfully");
-                }
-            }
-        }
+
+      
     }
 }
