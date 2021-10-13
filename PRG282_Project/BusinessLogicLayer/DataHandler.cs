@@ -38,7 +38,7 @@ namespace PRG282_Project.BusinessLogicLayer
             connect.Close();
         }
 
-        public DataTable DisplayStudents()
+        /*public DataTable DisplayStudents()
         {
             using (connect)
             {
@@ -50,7 +50,7 @@ namespace PRG282_Project.BusinessLogicLayer
                 return dt;
             }
         }
-     
+         */
         public SqlDataReader getModule()
         {
             Open();
@@ -59,12 +59,11 @@ namespace PRG282_Project.BusinessLogicLayer
             return reader;
         }
 
-        public void insertModule(string code, string name, string description, string link)
+        public void insertModule(string name, string description, string link)
         {
             Open();
-            string query = $"INSERT INTO Module VALUES ({code},{name},{description},{link})";
+            string query = $"INSERT INTO Module (ModuleName,ModuleDescription,OnlineLink) VALUES ('{name}','{description}','{link}')";
             SqlCommand cmd = new SqlCommand(query, connect);
-            SqlDataReader reader = cmd.ExecuteReader();
             cmd.ExecuteNonQuery();
             Close();
         }
@@ -72,9 +71,8 @@ namespace PRG282_Project.BusinessLogicLayer
         public void updateModule(string code, string name, string description, string link)
         {
             Open();
-            string query = $"UPDATE Module SET (ModuleCode,ModuleName,ModuleDescription,OnlineLink) = ({code},{name},{description},{link})";
+            string query = $"UPDATE Module SET ModuleName = '{name}', ModuleDescription = '{description}', OnlineLink = '{link})' WHERE ModuleCode = {code}";
             SqlCommand cmd = new SqlCommand(query, connect);
-            SqlDataReader reader = cmd.ExecuteReader();
             cmd.ExecuteNonQuery();
             Close();
         }
@@ -82,9 +80,8 @@ namespace PRG282_Project.BusinessLogicLayer
         public void deleteModule(string code)
         {
             Open();
-            string query = $"DELETE FROM Module WHERE ModuleCode = {code}";
+            string query = $"DELETE FROM StudentModule WHERE ModuleCode = {code} " + $"DELETE FROM Module WHERE ModuleCode = {code}";
             SqlCommand cmd = new SqlCommand(query, connect);
-            SqlDataReader reader = cmd.ExecuteReader();
             cmd.ExecuteNonQuery();
             Close();
         }
