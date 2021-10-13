@@ -38,7 +38,7 @@ namespace PRG282_Project.BusinessLogicLayer
             connect.Close();
         }
 
-        /*public DataTable DisplayStudents()
+        public DataTable DisplayStudents()
         {
             using (connect)
             {
@@ -50,7 +50,6 @@ namespace PRG282_Project.BusinessLogicLayer
                 return dt;
             }
         }
-         */
         public SqlDataReader getModule()
         {
             Open();
