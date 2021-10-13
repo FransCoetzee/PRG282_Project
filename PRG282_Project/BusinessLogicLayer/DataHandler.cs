@@ -16,7 +16,7 @@ namespace PRG282_Project.BusinessLogicLayer
         //To handle all business operation such as the insert, delete, update, search 
        //There are gonna be two sets of all CRUD Functions for modules and the actual students respectfully.
        
-        SqlConnection connect = new SqlConnection("Server=.; Initial Catalog= BelgiumCampusStudents; Integrated Security = SSPI");
+        SqlConnection connect = new SqlConnection("Data Source=(local);Initial Catalog= BelgiumCampusStudents;Integrated Security = SSPI");
 
         public DataHandler() { }
 
@@ -92,14 +92,12 @@ namespace PRG282_Project.BusinessLogicLayer
         //Insert Image to the database from vs
         public void InsertImage(string filename, Image img)
         {
-            
-            using (connect)
-            {
-                connect.Open();
 
-                string query = $"INSERT INTO Picture(StudentImage,Filename) VALUES(@sImage,{filename})";
-                using (SqlCommand cmd = new SqlCommand(query,connect))
-                {
+           SqlConnection connect = new SqlConnection("Data Source=(local);Initial Catalog= BelgiumCampusStudents;Integrated Security = SSPI");
+           connect.Open();
+           string query = "INSERT INTO Picture(StudentImage,Filename) VALUES(@sImage," + "'"+ filename+"'"+ ")";
+           using (SqlCommand cmd = new SqlCommand(query,connect))
+           {
                     MemoryStream ms = new MemoryStream();
                     img.Save(ms, ImageFormat.Jpeg);
 
@@ -109,29 +107,31 @@ namespace PRG282_Project.BusinessLogicLayer
 
                     cmd.Parameters.AddWithValue("@sImage", arrPhoto);
                     cmd.ExecuteNonQuery();
-                }
-            }
+                
+           }
         }
 
         public void insertStudent(string name, string surname, string dob, string gender, string phone, string addy, int pictureno, int modulecode)//Still needs to be tested, specifically with the picture
-        {                                
-                
-                SqlCommand cmd = new SqlCommand("spAddStudents", connect);
-                cmd.CommandType = CommandType.StoredProcedure;
+        {
+
+            SqlConnection connect = new SqlConnection("Data Source=(local);Initial Catalog= BelgiumCampusStudents;Integrated Security = SSPI");
+            connect.Open();
+            SqlCommand cmd = new SqlCommand("spAddStudents", connect);
+            cmd.CommandType = CommandType.StoredProcedure;
 
                 
-                cmd.Parameters.AddWithValue("@Name", name);
-                cmd.Parameters.AddWithValue("@Surname", surname);
-                cmd.Parameters.AddWithValue("@dob", dob);
-                cmd.Parameters.AddWithValue("@Gender", gender);
-                cmd.Parameters.AddWithValue("@Phone", phone);
-                cmd.Parameters.AddWithValue("@Address", addy);
-                cmd.Parameters.AddWithValue("@PictureNo", pictureno);
-                cmd.Parameters.AddWithValue("@ModuleCode", modulecode);
+              cmd.Parameters.AddWithValue("@Name", name);
+              cmd.Parameters.AddWithValue("@Surname", surname);
+              cmd.Parameters.AddWithValue("@dob", dob);
+              cmd.Parameters.AddWithValue("@Gender", gender);
+              cmd.Parameters.AddWithValue("@Phone", phone);
+              cmd.Parameters.AddWithValue("@Address", addy);
+              cmd.Parameters.AddWithValue("@PictureNo", pictureno);
+              cmd.Parameters.AddWithValue("@ModuleCode", modulecode);
 
-            Open();
+            
             cmd.ExecuteNonQuery();
-                          
+            connect.Close();
         }
      
         public void updateStudent(int id,string name, string surname, string dob, string gender, string phone, string addy,int modulecode)
