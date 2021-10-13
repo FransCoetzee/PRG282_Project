@@ -33,7 +33,10 @@ namespace PRG282_Project.BusinessLogicLayer
                 Console.WriteLine("Connection Not successful. \n" + er.Message);
             }
         }
-
+        public void Close()
+        {
+            connect.Close();
+        }
 
         public DataTable DisplayStudents()
         {
@@ -111,9 +114,8 @@ namespace PRG282_Project.BusinessLogicLayer
         }
 
         public void insertStudent(string name, string surname, string dob, string gender, string phone, string addy, int pictureno, int modulecode)//Still needs to be tested, specifically with the picture
-        {                     
-            using (connect)
-            {
+        {                                
+                
                 SqlCommand cmd = new SqlCommand("spAddStudents", connect);
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -126,18 +128,17 @@ namespace PRG282_Project.BusinessLogicLayer
                 cmd.Parameters.AddWithValue("@Address", addy);
                 cmd.Parameters.AddWithValue("@PictureNo", pictureno);
                 cmd.Parameters.AddWithValue("@ModuleCode", modulecode);
-               
 
-                connect.Open();
-                cmd.ExecuteNonQuery();
-            }
-            
+            Open();
+            cmd.ExecuteNonQuery();
+                          
         }
      
         public void updateStudent(int id,string name, string surname, string dob, string gender, string phone, string addy,int modulecode)
         {            
             using (connect)
             {
+                Open();
                 SqlCommand cmd = new SqlCommand("spUpdateStudents", connect);
                 cmd.CommandType = CommandType.StoredProcedure;
 
@@ -149,9 +150,9 @@ namespace PRG282_Project.BusinessLogicLayer
                 cmd.Parameters.AddWithValue("@Phone",phone);
                 cmd.Parameters.AddWithValue("@Address", addy);
                 cmd.Parameters.AddWithValue("@ModuleCode", modulecode);                          
-
-                connect.Open();
+               
                 cmd.ExecuteNonQuery();
+                Close();
             }
 
         }
@@ -170,12 +171,13 @@ namespace PRG282_Project.BusinessLogicLayer
                     connect.Open();
                     cmd.ExecuteNonQuery();
                 }
+                Close();
                 return true;
             }
             catch (Exception)
             {
-
-               return false;
+                Close();
+                return false;
             }
         }
 
@@ -192,17 +194,14 @@ namespace PRG282_Project.BusinessLogicLayer
                 DataTable dt = new DataTable();
                 using (SqlDataReader dr = cmd.ExecuteReader())
                 {
-                    dt.Load(dr);
+                    dt.Load(dr);                    
                     return dt;
                 }
             }
         }
         //Now the only thing thtat's missing is the inserting and displaying of the picture !!!
 
-        public void Close()
-        {
-            connect.Close();
-        }
+      
         public SqlConnection Connect { get => connect; set => connect = value; }
     }
 }

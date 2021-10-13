@@ -30,6 +30,7 @@ namespace PRG282_Project.PresentationLayer
         {
             //Display the students via the datagridview on the form load
             dataGridView1.DataSource = data.DisplayStudents();
+            data.Close();
         }
       
         private void addNewStudentToolStripMenuItem_Click(object sender, EventArgs e)
@@ -116,6 +117,7 @@ namespace PRG282_Project.PresentationLayer
         {
             int id = int.Parse(txtSearch.Text);
             dataGridView1.DataSource = data.SearchStudent(id);
+            data.Close();
         }
 
         private void exitAppliationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -139,7 +141,6 @@ namespace PRG282_Project.PresentationLayer
             }
 
         }
-
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {                                  
