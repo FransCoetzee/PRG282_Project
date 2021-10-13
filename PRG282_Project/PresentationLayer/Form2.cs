@@ -25,6 +25,7 @@ namespace PRG282_Project.PresentationLayer
         }
 
         DataHandler data = new DataHandler();
+        string filename;
 
         private void Form2_Load(object sender, EventArgs e)
         {
@@ -47,19 +48,12 @@ namespace PRG282_Project.PresentationLayer
             data.insertStudent(name, surname, dob, gender, phone, address, pictureno, modulecode);
             pictureno = pictureno + 15;
 
-
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            using (OpenFileDialog ofg = new OpenFileDialog() {Multiselect = false, ValidateNames = true, Filter = "Images|*.jpg;*png;*jpeg;*jfif" })
-            {
-                if (ofg.ShowDialog() == DialogResult.OK)
-                {
-                    string filename = ofg.FileName;
-                    pictureBox1.Image = Image.FromFile(filename);
-                    string[] file = filename.Split('.');
-
-                    data.InsertImage(file[0], pictureBox1.Image);//I think this is where it takes the picture that's in the piture box into the database
-                }
-            }
+          
+                    
+            pictureBox1.Image = Image.FromFile(filename);
+            string[] file = filename.Split('.');
+            data.InsertImage(file[0], pictureBox1.Image);//I think this is where it takes the picture that's in the piture box into the database                          
 
             MessageBox.Show("Student Data Inserted Successfully");
             Form4 Module = new Form4();
@@ -145,7 +139,7 @@ namespace PRG282_Project.PresentationLayer
             {
                 if (ofg.ShowDialog() == DialogResult.OK)
                 {
-                    string filename = ofg.FileName;
+                    filename = ofg.FileName;
                     pictureBox1.Image = Image.FromFile(filename);
                     textBox1.Text = filename;
                 }

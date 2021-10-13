@@ -62,5 +62,10 @@ namespace PRG282_Project.PresentationLayer
             dataGridView1.DataSource = source;
             db.Close();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
