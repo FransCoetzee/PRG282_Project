@@ -47,13 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLogicLayer\DataHandler.cs" />
-    <Compile Include="BusinessLogicLayer\Operations.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BusinessLogicLayer\Operations.Designer.cs">
-      <DependentUpon>Operations.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BusinessLogicLayer\Student.cs" />
     <Compile Include="DataLayer\FileHandler.cs" />
     <Compile Include="PresentationLayer\EmptyTextException.cs" />
     <Compile Include="PresentationLayer\Form1.cs">

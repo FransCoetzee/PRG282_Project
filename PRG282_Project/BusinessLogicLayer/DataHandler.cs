@@ -34,11 +34,19 @@ namespace PRG282_Project.BusinessLogicLayer
             }
         }
 
-     /*   public DataTable DisplayStudents()
+        public DataTable DisplayStudents()
         {
-          
+            using (connect)
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter("spGetStudents", connect);
+                adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                return dt;
+            }
         }
-     */
+     
 
         public string getValue(string id, string category, string table)
         {
@@ -77,61 +85,31 @@ namespace PRG282_Project.BusinessLogicLayer
             }
         }
 
-        //Read a picture from the database
-        /*
-        public string getImage()
-        {
-            Image img = null;
-            int i = 0;            
-            using (connect)
-            {
-                connect.Open();
-                string query = "SELECT * FROM Picture";
-
-                SqlCommand cmd = new SqlCommand(query, connect);
-                SqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    byte[] imgData = (byte[])reader["StudentImage"];
-
-                    using (MemoryStream ms = new MemoryStream(imgData))
-                    {
-                        img = Image.FromStream(ms);
-                        img.Save(@"C:\Users\moren\OneDrive - belgiumcampus.ac.za\Pictures\Project Pictures\NewPicture"+i+".jpg");
-                    }
-                    i++;
-                }
-                return "Success";
-            }
-        }
-        */
-
-        public void insertStudent(Student myStudent)//Still needs to be tested, specifically with the picture
+        public void insertStudent(string name, string surname, string dob, string gender, string phone, string addy, int pictureno, int modulecode)//Still needs to be tested, specifically with the picture
         {                     
             using (connect)
             {
                 SqlCommand cmd = new SqlCommand("spAddStudents", connect);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@StudentID", myStudent.Id);
-                cmd.Parameters.AddWithValue("@Name", myStudent.Name);
-                cmd.Parameters.AddWithValue("@Surname", myStudent.Surname);
-                cmd.Parameters.AddWithValue("@dob", myStudent.Dob);
-                cmd.Parameters.AddWithValue("@Gender", myStudent.Gender);
-                cmd.Parameters.AddWithValue("@Phone", myStudent.Phone);
-                cmd.Parameters.AddWithValue("@Address", myStudent.Address);
-                cmd.Parameters.AddWithValue("@ModuleCode", myStudent.Modulecode);
-                cmd.Parameters.AddWithValue("@ModuleName", myStudent.ModuleName);
-                cmd.Parameters.AddWithValue("@ModDescription", myStudent.ModDescription);
-                cmd.Parameters.AddWithValue("@OnlineLink", myStudent.Onlinelink);
+                
+                cmd.Parameters.AddWithValue("@Name", name);
+                cmd.Parameters.AddWithValue("@Surname", surname);
+                cmd.Parameters.AddWithValue("@dob", dob);
+                cmd.Parameters.AddWithValue("@Gender", gender);
+                cmd.Parameters.AddWithValue("@Phone", phone);
+                cmd.Parameters.AddWithValue("@Address", addy);
+                cmd.Parameters.AddWithValue("@PictureNo", pictureno);
+                cmd.Parameters.AddWithValue("@ModuleCode", modulecode);
+               
 
                 connect.Open();
                 cmd.ExecuteNonQuery();
             }
-            //When the user picks the module, whatever module code is selected, the rest of the information should apprear in the text boxes
+            
         }
      
-        public void updateStudent(Student myStudent)
+        public void updateStudent(int id,string name, string surname, string dob, string gender, string phone, string addy,int modulecode)
         {
             /*  Open();
              SqlCommand cmd = new SqlCommand("UPDATE @table SET @category = @value WHERE ID = @id", connect);
@@ -148,17 +126,14 @@ namespace PRG282_Project.BusinessLogicLayer
                 SqlCommand cmd = new SqlCommand("spUpdateStudents", connect);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@StudentID", myStudent.Id);
-                cmd.Parameters.AddWithValue("@Name", myStudent.Name);
-                cmd.Parameters.AddWithValue("@Surname", myStudent.Surname);
-                cmd.Parameters.AddWithValue("@dob", myStudent.Dob);
-                cmd.Parameters.AddWithValue("@Gender", myStudent.Gender);
-                cmd.Parameters.AddWithValue("@Phone", myStudent.Phone);
-                cmd.Parameters.AddWithValue("@Address", myStudent.Address);
-                cmd.Parameters.AddWithValue("@ModuleCode", myStudent.Modulecode);
-                cmd.Parameters.AddWithValue("@ModuleName", myStudent.ModuleName);
-                cmd.Parameters.AddWithValue("@ModDescription", myStudent.ModDescription);
-                cmd.Parameters.AddWithValue("@OnlineLink", myStudent.Onlinelink);
+                cmd.Parameters.AddWithValue("@StudentID", id);
+                cmd.Parameters.AddWithValue("@Name", name);
+                cmd.Parameters.AddWithValue("@Surname", surname);
+                cmd.Parameters.AddWithValue("@dob", dob);
+                cmd.Parameters.AddWithValue("@Gender", gender);
+                cmd.Parameters.AddWithValue("@Phone",phone);
+                cmd.Parameters.AddWithValue("@Address", addy);
+                cmd.Parameters.AddWithValue("@ModuleCode", modulecode);                          
 
                 connect.Open();
                 cmd.ExecuteNonQuery();
