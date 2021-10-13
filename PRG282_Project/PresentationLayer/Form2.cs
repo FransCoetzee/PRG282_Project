@@ -31,6 +31,7 @@ namespace PRG282_Project.PresentationLayer
         {
             //Display the students via the datagridview on the form load
             loaddata();
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage; 
         }
       
         private void addNewStudentToolStripMenuItem_Click(object sender, EventArgs e)
@@ -62,8 +63,7 @@ namespace PRG282_Project.PresentationLayer
         }
 
         private void updateStudentToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            txtID.Enabled = true;
+        {           
             int id = int.Parse(txtID.Text);
             string name = txtName.Text;
             string surname = txtSurname.Text;
@@ -76,22 +76,15 @@ namespace PRG282_Project.PresentationLayer
 
             data.updateStudent(id, name, surname, dob, gender, phone, address, modulecode);
 
-            DialogResult dialogResult =  MessageBox.Show("Would you like to update the student image as well?", "Student Image", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-              pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-              using (OpenFileDialog ofg = new OpenFileDialog() { Multiselect = false, ValidateNames = true, Filter = "Images|*.jpg;*png;*jpeg;*jfif" })
-              {
-                if (ofg.ShowDialog() == DialogResult.Yes)
-                {
-                    string filename = ofg.FileName;
-                    pictureBox1.Image = Image.FromFile(filename);
-                    string[] file = filename.Split('.');
+           
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
 
-                    data.InsertImage(file[0], pictureBox1.Image);
-                }
-              }
-            }
+            pictureBox1.Image = Image.FromFile(filename);
+            string[] file = filename.Split('.');
+
+            data.UpdateImage(file[0], pictureBox1.Image,id);
+             
+            
             MessageBox.Show($"Student {id} has been updated successfully");
             loaddata();
 

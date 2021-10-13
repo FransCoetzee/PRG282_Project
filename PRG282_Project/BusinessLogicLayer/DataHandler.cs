@@ -108,6 +108,28 @@ namespace PRG282_Project.BusinessLogicLayer
            }
         }
 
+        //Update Image
+        public void UpdateImage(string filename, Image img, int id)
+        {
+
+            SqlConnection connect = new SqlConnection("Data Source=(local);Initial Catalog= BelgiumCampusStudents;Integrated Security = SSPI");
+            connect.Open();
+            string query = $"UPDATE Picture SET Filename = '{filename}', StudentImage = @sImage WHERE PictureNo = {id}";
+            using (SqlCommand cmd = new SqlCommand(query, connect))
+            {
+                MemoryStream ms = new MemoryStream();
+                img.Save(ms, ImageFormat.Jpeg);
+
+                byte[] arrPhoto = new byte[ms.Length];
+                ms.Position = 0;
+                ms.Read(arrPhoto, 0, arrPhoto.Length);
+
+                cmd.Parameters.AddWithValue("@sImage", arrPhoto);
+                cmd.ExecuteNonQuery();
+
+            }
+        }
+
         public void insertStudent(string name, string surname, string dob, string gender, string phone, string addy, int pictureno, int modulecode)//Still needs to be tested, specifically with the picture
         {
             SqlConnection connect = new SqlConnection("Data Source=(local);Initial Catalog= BelgiumCampusStudents;Integrated Security = SSPI");
@@ -134,21 +156,22 @@ namespace PRG282_Project.BusinessLogicLayer
         {            
             using (SqlConnection connect = new SqlConnection("Server=.; Initial Catalog= BelgiumCampusStudents; Integrated Security = SSPI"))
             {
-                
+                connect.Open();
                 SqlCommand cmd = new SqlCommand("spUpdateStudents", connect);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@StudentID", id);
+                cmd.Parameters.AddWithValue("@Id", id);
                 cmd.Parameters.AddWithValue("@Name", name);
                 cmd.Parameters.AddWithValue("@Surname", surname);
                 cmd.Parameters.AddWithValue("@dob", dob);
                 cmd.Parameters.AddWithValue("@Gender", gender);
                 cmd.Parameters.AddWithValue("@Phone",phone);
                 cmd.Parameters.AddWithValue("@Address", addy);
-                cmd.Parameters.AddWithValue("@ModuleCode", modulecode);
+                cmd.Parameters.AddWithValue("@ModuleCode", modulecode);               
 
-                Open();
+               
                 cmd.ExecuteNonQuery();
+                connect.Close();
             }
 
         }
