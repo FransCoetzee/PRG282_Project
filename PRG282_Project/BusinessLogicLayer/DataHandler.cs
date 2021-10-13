@@ -39,11 +39,21 @@ namespace PRG282_Project.BusinessLogicLayer
             }
         }
 
-     /*   public DataTable DisplayStudents()
+        public SqlDataReader getStudents()
         {
-          
+            Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Student", connect);
+            SqlDataReader reader = cmd.ExecuteReader();
+            return reader;
         }
-     */
+
+        public SqlDataReader getModule()
+        {
+            Open();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Module", connect);
+            SqlDataReader reader = cmd.ExecuteReader();
+            return reader;
+        }
 
         public string getValue(string id, string category, string table)
         {
