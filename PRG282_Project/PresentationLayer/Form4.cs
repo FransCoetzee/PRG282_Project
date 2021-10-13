@@ -25,7 +25,7 @@ namespace PRG282_Project.PresentationLayer
             //Validate first all of the
             //Do not take the module code as a parameter when inserting
             //Only take it  for update, search and delete
-            db.insertModule(txtCode.Text, txtModName.Text, txtDescription.Text, txtLink.Text);
+            db.insertModule(txtModName.Text, txtDescription.Text, txtLink.Text);
             loaddata();
         }
 
@@ -36,7 +36,7 @@ namespace PRG282_Project.PresentationLayer
 
         private void button2_Click(object sender, EventArgs e)
         {
-            db.updateModule(txtCode.Text, txtModName.Text, txtDescription.Text, txtLink.Text);
+            db.updateModule(txtCode.Text,txtModName.Text, txtDescription.Text, txtLink.Text);
             loaddata();
         }
 
